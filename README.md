@@ -1,70 +1,213 @@
-# Getting Started with Create React App
+# 📊 Mini CRM Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 🚀 Future Interns – Full Stack Development Internship (Task 02)
 
-## Available Scripts
+A simple and functional **Customer Relationship Management (CRM)** web application built using **React (Frontend)** and **Node.js + Express + MongoDB (Backend)**.
 
-In the project directory, you can run:
+This project allows users (Admin) to manage leads, track customer details, and perform CRUD operations in a clean dashboard interface.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# 🌟 Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* 🔐 Admin Login Authentication
+* ➕ Add New Leads
+* 📋 View All Leads
+* ✏️ Update Lead Details
+* ❌ Delete Leads
+* 📊 Track Lead Status (New, Contacted, Converted)
+* ⚡ Real-time updates with API integration
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 🧰 Tech Stack
 
-### `npm run build`
+## Frontend:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* React.js
+* Axios
+* CSS
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# 📁 Project Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+crm-project/
+│
+├── backend/
+│   ├── backend/
+│   │   ├── models/
+│   │   │   └── Lead.js
+│   │   ├── routes/
+│   │   │   └── leadRoutes.js
+│   │   └── server.js
+│   └── package.json
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── Login.jsx
+│   │   ├── App.js
+│   │   └── index.js
+│   └── package.json
+│
+└── README.md
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# ⚙️ Installation & Setup
 
-## Learn More
+## 1️⃣ Clone the repository
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+git clone https://github.com/your-username/crm-project.git
+cd crm-project
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 2️⃣ Setup Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd backend/backend
+npm install
+node server.js
+```
 
-### Analyzing the Bundle Size
+👉 Backend runs on:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```
+http://localhost:5000
+```
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 3️⃣ Setup Frontend
 
-### Advanced Configuration
+```bash
+cd frontend
+npm install
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+👉 Frontend runs on:
 
-### Deployment
+```
+http://localhost:3000
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+# 🔐 Admin Login Credentials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Use these credentials to login:
+
+```
+Username: admin
+Password: admin123
+```
+
+> ⚠️ This is a demo authentication system (hardcoded).
+
+---
+
+# 📌 How to Use the Application
+
+### 1. Open the app
+
+Go to:
+
+```
+http://localhost:3000
+```
+
+
+### 2. Login
+
+Enter admin credentials to access dashboard.
+
+---
+
+### 3. Manage Leads
+
+#### ➕ Add Lead
+
+* Enter name, email, source
+* Click Add
+
+#### 📋 View Leads
+
+* All leads appear in dashboard
+
+#### ✏️ Update Lead
+
+* Modify status (New / Contacted / Converted)
+
+#### ❌ Delete Lead
+
+* Remove unwanted leads
+
+---
+
+# 🔄 API Endpoints
+
+| Method | Endpoint       | Description   |
+| ------ | -------------- | ------------- |
+| GET    | /api/leads     | Get all leads |
+| POST   | /api/leads     | Add new lead  |
+| PUT    | /api/leads/:id | Update lead   |
+| DELETE | /api/leads/:id | Delete lead   |
+| POST   | /api/login     | Admin login   |
+
+---
+
+# 🧠 Learning Outcomes
+
+* Full Stack Development workflow
+* REST API creation & integration
+* MongoDB database handling
+* React state management
+* Debugging real-world issues (CORS, API errors, Git conflicts)
+
+---
+
+# 📸 Screenshots
+
+
+<img width="1920" height="880" alt="Save" src="https://github.com/user-attachments/assets/e280fd0c-3402-41c4-b71f-89e9b2c26e15" />
+
+
+# 🚀 Future Improvements
+
+* JWT Authentication 🔐
+* Role-based access (Admin/User)
+* Search & Filter Leads 🔍
+* Dashboard Analytics 📊
+* Deployment (Vercel + Render)
+
+---
+
+# 👩‍💻 Author
+
+**Akhila Bodduri**
+Full Stack Web Development Intern
+Future Interns
+
+
+
+# ⭐ Acknowledgement
+
+This project was developed as part of the **Future Interns Internship – Task 02** to gain hands-on experience in full stack web development.
+
+---
+
+⭐ If you like this project, don’t forget to star the repository!
