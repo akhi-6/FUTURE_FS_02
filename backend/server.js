@@ -7,6 +7,7 @@ require("dotenv").config();
 
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
 
@@ -14,7 +15,7 @@ app.use(express.json());
 const leadRoutes = require("./routes/leadRoutes");
 app.use("/api/leads", leadRoutes);
 
-// Login
+// Login Route
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
@@ -22,10 +23,10 @@ app.post("/api/login", (req, res) => {
     return res.json({ success: true });
   }
 
-  res.status(401).json({ success: false });
+  return res.status(401).json({ success: false });
 });
 
-// MongoDB
+// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("DB Connected ✅"))
   .catch(err => console.log(err));
@@ -37,6 +38,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/build/index.html"));
 });
 
+// Port
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
