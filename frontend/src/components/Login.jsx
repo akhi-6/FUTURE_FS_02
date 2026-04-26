@@ -11,27 +11,64 @@ function Login({ setIsLoggedIn }) {
     e.preventDefault();
 
     try {
-      const res = await axios.post("/api/login", user); // ✅ FIXED
+      const res = await axios.post("http://localhost:5000/api/login", {
+        username: user.username.trim(),
+        password: user.password.trim()
+      });
 
       if (res.data.success) {
         localStorage.setItem("auth", "true");
         setIsLoggedIn(true);
       }
-    } catch {
-      alert("Invalid Credentials");
+
+    } catch (err) {
+      console.log(err.response?.data);
+      alert("Invalid Credentials ❌");
     }
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <input placeholder="Username"
-        onChange={(e)=>setUser({...user, username:e.target.value})} />
+    <div style={{
+      height: "100vh",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      background: "#0f172a"
+    }}>
+      <form onSubmit={handleLogin} style={{
+        background: "white",
+        padding: "30px",
+        borderRadius: "10px",
+        width: "300px"
+      }}>
+        <h2>Admin Login 🔐</h2>
 
-      <input type="password" placeholder="Password"
-        onChange={(e)=>setUser({...user, password:e.target.value})} />
+        <input
+          value={user.username}
+          placeholder="Username"
+          onChange={(e)=>setUser({...user, username:e.target.value})}
+          style={{ width: "100%", padding: "10px", margin: "10px 0" }}
+        />
 
-      <button>Login</button>
-    </form>
+        <input
+          type="password"
+          value={user.password}
+          placeholder="Password"
+          onChange={(e)=>setUser({...user, password:e.target.value})}
+          style={{ width: "100%", padding: "10px", margin: "10px 0" }}
+        />
+
+        <button style={{
+          width: "100%",
+          padding: "10px",
+          background: "#3b82f6",
+          color: "white",
+          border: "none"
+        }}>
+          Login
+        </button>
+      </form>
+    </div>
   );
 }
 

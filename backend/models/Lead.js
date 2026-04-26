@@ -1,9 +1,18 @@
 const mongoose = require("mongoose");
 
 const LeadSchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  source: String,
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  source: {
+    type: String,
+    default: "Website"
+  },
   status: {
     type: String,
     default: "New"
@@ -12,6 +21,6 @@ const LeadSchema = new mongoose.Schema({
     type: String,
     default: ""
   }
-});
+}, { timestamps: true });
 
 module.exports = mongoose.model("Lead", LeadSchema);
